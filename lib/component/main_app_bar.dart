@@ -9,9 +9,10 @@ class MainAppBar extends StatelessWidget {
 
   final StatusModel status; //
   final StatModel stat; // 실제 값 
+  final String region;
 
   MainAppBar({
-    Key? key, required this.status, required this.stat,
+    Key? key, required this.status, required this.stat, required this.region,
   }) : super(key: key);
 
   @override
@@ -29,7 +30,7 @@ class MainAppBar extends StatelessWidget {
             margin: EdgeInsets.only(top: kToolbarHeight), // 원래 앱바의 기본적인 셋팅된 height를 얻으려면 kTollbarHeight
             child: Column(
               children: [
-                Text('서울',style: ts,),
+                Text(region,style: ts,),
                 Text(DataUtils.getTimeFromDateTime(dateTime: stat.dataTime),style: ts.copyWith(fontSize: 20.0),),
                 SizedBox(height: 20.0,),
                 Image.asset('${status.imagePath}',width: MediaQuery.of(context).size.width /2,),
